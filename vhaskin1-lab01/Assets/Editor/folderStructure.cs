@@ -6,7 +6,99 @@ using System.IO;
 public class folderStructure : MonoBehaviour {
 
 	[MenuItem("Tool Creation/Create Folder")]
-	[MenuItem("Tool Creation 2/Create Folder 2")]
+	public static void CreateFolder()
+	{
+		AssetDatabase.CreateFolder ("Assets", "Dynamic Assets");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Resources");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Animations");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Animations", "Sources");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Animation Controllers");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Effects");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Models");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Models", "Character");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Models", "Environment");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Prefabs");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Prefabs","Common");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Sounds");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Sounds","Music");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Sounds/Music","Common");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Sounds","SFX");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Sounds/SFX","Common");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources","Textures");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Resources/Textures","Common");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Editor");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Extensions");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Gizmos");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Plugins");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets","Scripts");
+		AssetDatabase.CreateFolder ("Assets/Dynamic Assets/Scripts","Common");
+		AssetDatabase.CreateFolder ("Assets", "Shaders");
+		AssetDatabase.CreateFolder ("Assets", "Static Assets");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Animations");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Animations", "Sources");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Animation Controllers");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Effects");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Models");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Models", "Character");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Models", "Environment");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Prefabs");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Prefabs","Common");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Sounds");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Sounds","Music");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Sounds/Music","Common");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Sounds","SFX");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Sounds/SFX","Common");
+		AssetDatabase.CreateFolder ("Assets/Static Assets","Textures");
+		AssetDatabase.CreateFolder ("Assets/Static Assets/Textures","Common");
+		AssetDatabase.CreateFolder ("Assets", "Testing");
+
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets", 
+		                             "Dynamic Assets: This folder is for storing dynamic assets.\n" +
+		                             "These are stored as such\n" +
+		                             "\n\tDynamic Resources" +
+		                             "\n\tEditor" +
+		                             "\n\tExtensions" +
+		                             "\n\tGizmos" +
+		                             "\n\tPlugins" +
+		                             "\n\tand Scripts");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Resources", 
+		                             "Resources: This folder is for storing dynamic Resources including\n" +
+		                             "\n\tAnimations" +
+		                             "\n\tAnimation Controllers" +
+		                             "\n\tEffects" +
+		                             "\n\tModels for Characters and Environments" +
+		                             "\n\tPrefabs" +
+		                             "\n\tSounds for Music and SFX" +
+		                             "\n\tand Textures");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Editor", 
+		                             "Editor: This folder is for storing Editor Files.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Extensions", 
+		                             "Extensions: This folder is for storing extensions.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Gizmos", 
+		                             "Gizmos: This folder is for storing nice mogwais.\n\n" +
+		                             "All others need to be placed in the round file after exposure to sunlight.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Plugins", 
+		                             "Plugins: This folder is for storing plugins.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Dynamic Assets/Scripts", 
+		                             "Scripts: This folder is for storing scripts.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Shaders", 
+		                             "Shaders: This folder is for storing shaders.");
+		System.IO.File.WriteAllText (Application.dataPath + "/Static Assets", 
+		                             "Static Assets: This folder is for storing Static Assets including\n" +
+		                             "\n\tAnimations" +
+		                             "\n\tAnimation Controllers" +
+		                             "\n\tEffects" +
+		                             "\n\tModels for Characters and Environments" +
+		                             "\n\tPrefabs" +
+		                             "\n\tScenes" +
+		                             "\n\tSounds for Music and SFX" +
+		                             "\n\tand Textures");
+		System.IO.File.WriteAllText (Application.dataPath + "/Testing", 
+		                             "Testing: This folder is for storing Test files and files in need of testing.");
+
+		AssetDatabase.Refresh ();
+	}
+	/*
 	public static void CreateFolder()
 	{
 		//Debug.Log ("Creating a folder!");
@@ -26,16 +118,5 @@ public class folderStructure : MonoBehaviour {
 		System.IO.File.WriteAllText (Application.dataPath + "/Animations", "Animations: This folder is for storing materials.");
 		System.IO.File.WriteAllText (Application.dataPath + "/Animations/AnimationControllers", 
 		                             "AnimationControllers: This folder is for storing materials.");
-	}
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	}*/
 }
