@@ -11,6 +11,7 @@ public class ScriptEditorOrganizer : MonoBehaviour {
     {
         AssetDatabase.CreateFolder("Assets", "Dynamic Assets");
         AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Resources");
+        string dyAssetsResources = "Assets/Dynamic Assets/Resources";
         AssetDatabase.CreateFolder("Assets", "Materials");
         System.IO.File.WriteAllText(Application.dataPath + "/Materials/folderStructure.txt", "This Folder is for storing materials!");
         AssetDatabase.CreateFolder("Assets", "Textures");
