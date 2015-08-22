@@ -6,7 +6,7 @@ using System.IO;
 public class ScriptEditorOrganizer : MonoBehaviour {
     
     
-    [MenuItem("Tool Creation/Create folder")]
+    [MenuItem("Tool Creation/Create Project Folders")]
     public static void Createfolder()
     {
         //Create All the project folders.
@@ -75,12 +75,40 @@ public class ScriptEditorOrganizer : MonoBehaviour {
         System.IO.File.WriteAllText(Application.dataPath + "Assets/Plugins", "Place plugins in this folder.");
 
         //Assets/Scripts
-        AssetDatabase.CreateFolder("Assets", "Shaders");
+        AssetDatabase.CreateFolder("Assets", "Scripts");
         //Assets/Scripts/folderStructure.txt
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Scripts", "Place Scripts in this folder.");
+        //Assets/Scripts/Common
+        AssetDatabase.CreateFolder("Assets/Scripts", "Common");
+
+        //Assets/Shaders
+        AssetDatabase.CreateFolder("Assets", "Shaders");
         System.IO.File.WriteAllText(Application.dataPath + "Assets/Shaders", "Place Shaders in this folder.");
 
+        //Assets/Static Assets
+        AssetDatabase.CreateFolder("Assets", "Static Assets");
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Static Assets", "Place all static assets in this folder");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Animations");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Animations", "Sources");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Animation Controllers");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Effects");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Models");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Models", "Character");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Models", "Environment");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Prefabs");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Prefabs", "Common");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Scenes");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Sounds");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Sounds", "Music");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Sounds/Music", "Common");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Sounds", "SFX");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Sounds/SFX", "Common");
+        AssetDatabase.CreateFolder("Assets/Static Assets", "Textures");
+        AssetDatabase.CreateFolder("Assets/Static Assets/Textures", "Common");
+        AssetDatabase.CreateFolder("Assets", "Testing");
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Testing", "Place all testing objects or scenes in this folder");
 
-
+        System.IO.File.WriteAllText(Application.dataPath + "Assets", "Please place assets in the corrisponding folders or in this folder if N/A");
         AssetDatabase.Refresh();
     }
 
