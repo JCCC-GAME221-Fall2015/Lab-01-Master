@@ -64,6 +64,23 @@ public class ScriptEditorOrganizer : MonoBehaviour {
         //Assets/Extensions/folderStructure.txt
         System.IO.File.WriteAllText(Application.dataPath + "Assets/Extensions", "Place extensions in this folder.");
 
+        //Assets/Gizmos
+        AssetDatabase.CreateFolder("Assets", "Gizmos");
+        //Assets/Gizmos/folderStructure.txt
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Gizmos", "Place Gizmos in this folder.");
+
+        //Assets/Plugins
+        AssetDatabase.CreateFolder("Assets", "Plugins");
+        //Assets/Plugins/folderStructure.txt
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Plugins", "Place plugins in this folder.");
+
+        //Assets/Scripts
+        AssetDatabase.CreateFolder("Assets", "Shaders");
+        //Assets/Scripts/folderStructure.txt
+        System.IO.File.WriteAllText(Application.dataPath + "Assets/Shaders", "Place Shaders in this folder.");
+
+
+
         AssetDatabase.Refresh();
     }
 
