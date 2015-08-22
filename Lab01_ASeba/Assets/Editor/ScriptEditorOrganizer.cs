@@ -52,42 +52,42 @@ public class ScriptEditorOrganizer : MonoBehaviour {
         //Assets/Dynamic Assets/Resources/Sounds
         AssetDatabase.CreateFolder("Assets/Dynamic Assets/Resources", "Textures");
         //Assets/Dynamic Assets/Resources/folderStructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Dynamic Assets/Resources", "Place all your dynamic resources in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Resources/folderStructure.txt", "Place all your dynamic resources in this folder.");
 
         //Assets/Editor
         AssetDatabase.CreateFolder("Assets", "Editor");
         //Assets/Editor/folderSctructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Editor", "Place editor scripts in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Editor/folderStructure.txt", "Place editor scripts in this folder.");
 
         //Assets/Extensions
         AssetDatabase.CreateFolder("Assets", "Extensions");
         //Assets/Extensions/folderStructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Extensions", "Place extensions in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Extensions/folderStructure.txt", "Place extensions in this folder.");
 
         //Assets/Gizmos
         AssetDatabase.CreateFolder("Assets", "Gizmos");
         //Assets/Gizmos/folderStructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Gizmos", "Place Gizmos in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Gizmos/folderStructure.txt", "Place Gizmos in this folder.");
 
         //Assets/Plugins
         AssetDatabase.CreateFolder("Assets", "Plugins");
         //Assets/Plugins/folderStructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Plugins", "Place plugins in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Plugins/folderStructure.txt", "Place plugins in this folder.");
 
         //Assets/Scripts
         AssetDatabase.CreateFolder("Assets", "Scripts");
         //Assets/Scripts/folderStructure.txt
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Scripts", "Place Scripts in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Scripts/folderStructure.txt", "Place Scripts in this folder.");
         //Assets/Scripts/Common
         AssetDatabase.CreateFolder("Assets/Scripts", "Common");
 
         //Assets/Shaders
         AssetDatabase.CreateFolder("Assets", "Shaders");
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Shaders", "Place Shaders in this folder.");
+        System.IO.File.WriteAllText(Application.dataPath + "/Shaders/folderStructure.txt", "Place Shaders in this folder.");
 
         //Assets/Static Assets
         AssetDatabase.CreateFolder("Assets", "Static Assets");
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Static Assets", "Place all static assets in this folder");
+        System.IO.File.WriteAllText(Application.dataPath + "/Static Assets/folderStructure.txt", "Place all static assets in this folder");
         AssetDatabase.CreateFolder("Assets/Static Assets", "Animations");
         AssetDatabase.CreateFolder("Assets/Static Assets/Animations", "Sources");
         AssetDatabase.CreateFolder("Assets/Static Assets", "Animation Controllers");
@@ -106,9 +106,9 @@ public class ScriptEditorOrganizer : MonoBehaviour {
         AssetDatabase.CreateFolder("Assets/Static Assets", "Textures");
         AssetDatabase.CreateFolder("Assets/Static Assets/Textures", "Common");
         AssetDatabase.CreateFolder("Assets", "Testing");
-        System.IO.File.WriteAllText(Application.dataPath + "Assets/Testing", "Place all testing objects or scenes in this folder");
+        System.IO.File.WriteAllText(Application.dataPath + "/Testing/folderStructure.txt", "Place all testing objects or scenes in this folder");
 
-        System.IO.File.WriteAllText(Application.dataPath + "Assets", "Please place assets in the corrisponding folders or in this folder if N/A");
+        System.IO.File.WriteAllText(Application.dataPath + "/folderStructure.txt", "Please place assets in the corrisponding folders or in this folder if N/A");
         AssetDatabase.Refresh();
     }
 
