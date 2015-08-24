@@ -1,10 +1,20 @@
-﻿using UnityEngine;
+﻿// CreateFolders.cs
+// Craig Broskow - GAME 221 - Lab 01
+
+using UnityEngine;
 using System.Collections;
 using UnityEditor;
 
+// CreateFolders class
+// 1.  Adds a menu item to the toolbar at the top of Unity to access this script.
+// 2.  Creates a folder structure under the Assets folder for the storage of project assets.
+// 3.  Includes text documents within selected folders describing the purpose of those folders.
 public class CreateFolders : MonoBehaviour {
 
+	// Add a menu item to the Unity toolbar called "Create folders" under the section "Tool Creation".
 	[MenuItem("Tool Creation/Create folders")]
+	// Add a public static function that will be called by selecting the new menu item above.
+	// The Createfolders method accomplishes all three goals of the CreateFolders class.
 	public static void Createfolders()
 	{
 		// Create string constants to hold the paths to the parent folders in the Assets folder structure.
@@ -26,7 +36,6 @@ public class CreateFolders : MonoBehaviour {
 		const string StaticAssetsSoundsMusicPath = StaticAssetsSoundsPath + "/Music";
 		const string StaticAssetsSoundsSFXPath = StaticAssetsSoundsPath + "/SFX";
 		const string StaticAssetsTexturesPath = StaticAssetsPath + "/Textures";
-
 
 		// Create the desired folder structure using the path string constants defined above.
 		AssetDatabase.CreateFolder("Assets", "DynamicAssets");

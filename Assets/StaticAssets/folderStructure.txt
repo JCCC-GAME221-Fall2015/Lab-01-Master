@@ -1,1 +1,0 @@
-This folder is for storing all remaining assets (including scenes) that are not loaded into the game at runtime.
