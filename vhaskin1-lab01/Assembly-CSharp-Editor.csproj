@@ -47,6 +47,17 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\folderStructure.cs" />
+     <None Include="Assets\Static Assets\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Gizmos\folderStructure.txt" />
+     <None Include="Assets\Shaders\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Extensions\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Resources\folderStructure.txt" />
+     <None Include="Assets\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Plugins\folderStructure.txt" />
+     <None Include="Assets\Testing\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Scripts\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\folderStructure.txt" />
+     <None Include="Assets\Dynamic Assets\Editor\folderStructure.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
