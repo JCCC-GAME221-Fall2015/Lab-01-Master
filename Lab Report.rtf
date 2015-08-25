@@ -1,0 +1,186 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Times New Roman;}{\f1\froman\fcharset0 Times New Roman;}{\f2\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue0;}
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sl240\slmult1\qc\lang9\b\f0\fs24 Lab Report\par
+Lab 01 - Folder Creation\par
+Craig Broskow\par
+August 26, 2015\par
+\pard\sl240\slmult1\b0\par
+\par
+\pard\sl480\slmult1\ul Introduction:\par
+\ulnone\tab Folder creation and organization are critical to a project's success.  A simple but effective folder structure allows a large team to keep track of objects, scripts and other important project assets.\par
+\tab In this lab, we started to work with C# code to add a menu item to the Unity editor that allows for the automatic creation of a sample folder structure for this class.\par
+\par
+\ul Methods:\par
+\ulnone\tab We manually add an Editor sub-folder to the Assets folder in Unity.  Scripts contained within the Editor sub-folder can edit the Unity editor by adding new menu items, creating custom inspectors and panels, etc.\par
+\tab We create a script stored in the Editor sub-folder to accomplish three goals:  (1) Add a menu item to the toolbar at the top of Unity to access this script;  (2) Create the desired folder structure for this class; and  (3) Include text documents that are prepopulated with descriptions of the purpose of various folders in advancing the project's goals.\par
+\tab Adding a menu item to the toolbar at the top of Unity requires four elements within the script stored in the Editor sub-folder:   (1) Add a "using UnityEditor;" statement to the top of the script;  (2) Add a MenuItem attribute directly below the public class declaration statement, such as "[MenuItem("Tool Creation/Create folder")]"; and  (3) Attach an action to the new menu item by creating a function immediately below the MenuItem attribute. This function must be declared as "public static void"; and  (4) Update the Unity project to reflect these changes by using the statement "AssetDatabase.Refresh();".\par
+\tab Creating a folder structure via a script is accomplished by using the command "AssetDatabase.Createfolder(string parentFolder, string childFolder);"  For example, the C# statement "AssetDatabase.Createfolder("Assets", "Materials");" will create a sub-folder named "Materials" underneath the "Assets" folder.  The "AssetDatabase.Createfolder()" method calls are repeated to create the desired folder structure for this class.\par
+\tab The descriptions of the purpose of various folders are contained within text files named "folderStructure.txt" that are stored within the folders of the desired folder structure.  The following C# statement creates the file in the desired path, stores the desired text within it, and closes the file for future access:  "System.IO.File.WriteAllText(string filePath, string fileContents);", where filePath refers to the path to the desired folder and fileContents refers to the text stored within the newly created file.\par
+\tab Finally, the statement "AssetDatabase.Refresh();" updates the Unity project to reflect these changes.\par
+\lang1033\f1\par
+\ul Conclusions:\par
+\ulnone\tab Unity C# code was developed to add a menu item to the toolbar, to create a folder structure for storing project assets, and to create text files within the folder structure that describe the purpose of various folders in accomplishing the project's goals.\par
+\tab This type of code should prove useful in future game projects to adapt the folder structure to the needs of both the game project and also the team that is developing it.\par
+\par
+\ul Postlab Questions:\par
+\pard\sa39\ulnone\par
+\cf1\f0 1. What is the purpose of the Editor folder?\par
+\par
+\tab The Editor folder stores Editor scripts.\par
+\par
+2. Menu items can be added to the inspector using what statement?\par
+\par
+\tab Menu items are not added to the inspector; they are added to the Unity toolbar.  The statement used is an attribute placed directly below the public class declaration.  This attribute statement takes the form \b [MenuItem("<MenuParent>/<MenuChild>")]\b0 , where <MenuParent> represents the parent menu item and <MenuChild> represents the child menu item.\par
+\par
+3. What must you watch out for when adding menu items?\par
+\par
+\tab 1.  You have to add the "Using UnityEditor;" statement to the top of the script;  2.  Menu items have to be nested;  3.  For a menu item to do anything, a public static void function must be added directly below the MenuItem attribute;  4.  Menu item functions can cascade over several menu items if they do not all have their own, unique menu item functions.\par
+\par
+4. How do you attach an action to a menu item?\par
+\par
+\tab Create a public static function directly below the associated MenuItem attribute statement.\par
+\par
+5. What is the purpose of AssetDatabase.Refresh()?\par
+\par
+\tab AssetDatabase.Refresh() updates the Unity project with the new additions.\par
+\par
+6. What is the difference between a static asset and a dynamic asset?\par
+\par
+\tab Dynamic assets are loaded into the game during runtime using the Resources.Load() method, while static assets are all remaining assets (including scenes) that are not loaded into the game during runtime.\par
+\par
+7. Why is it important to keep static and dynamic assets in different folders?\par
+\par
+\tab The whole purpose of an Assets folder structure is to organize asset storage to make it easier to find and maintain.  An important aspect of assets is whether they will always be present, or their presence in the game needs to be maintained dynamically.  By keeping static and dynamic assets in different folders, it helps game developers to find the different classes of assets they are looking for, and to manage those assets during the running of the game by optimizing platform resources based on the static or dynamic nature of the assets.\par
+\par
+8. Think about your workflow, what would be your optimal folder structure/organization? \par
+\par
+\tab Since I don't really have a workflow yet, that is difficult to answer.  The sample folder structure provided in this lab seems like a perfectly acceptable starting point to begin development...which will then evolve based on the needs of the project and the development team.\par
+\pard\sl480\slmult1\cf0\f1\par
+\lang9\ul\f0 Code:\par
+\pard\sl240\slmult1\lang1033\ulnone\f2\fs20 // CreateFolders.cs\par
+// Craig Broskow - GAME 221 - Lab 01\par
+\par
+using UnityEngine;\par
+using System.Collections;\par
+using UnityEditor;\par
+\par
+// CreateFolders class\par
+// 1.  Adds a menu item to the toolbar at the top of Unity to access this script.\par
+// 2.  Creates a folder structure under the Assets folder for the storage of project assets.\par
+// 3.  Includes text documents within selected folders describing the purpose of those folders.\par
+public class CreateFolders : MonoBehaviour \{\par
+\par
+\tab // Add a menu item to the Unity toolbar called "Create folders" under the section "Tool Creation".\par
+\tab [MenuItem("Tool Creation/Create folders")]\par
+\tab // Add a public static function that will be called by selecting the new menu item above.\par
+\tab // The Createfolders method accomplishes all three goals of the CreateFolders class.\par
+\tab public static void Createfolders()\par
+\tab\{\par
+\tab\tab // Create string constants to hold the paths to the parent folders in the Assets folder structure.\par
+\tab\tab const string DynamicAssetsPath = "Assets/DynamicAssets";\par
+\tab\tab const string DynamicAssetsResourcesPath = DynamicAssetsPath + "/Resources";\par
+\tab\tab const string DynamicAssetsResourcesAnimationsPath = DynamicAssetsResourcesPath + "/Animations";\par
+\tab\tab const string DynamicAssetsResourcesModelsPath = DynamicAssetsResourcesPath + "/Models";\par
+\tab\tab const string DynamicAssetsResourcesPrefabsPath = DynamicAssetsResourcesPath + "/Prefabs";\par
+\tab\tab const string DynamicAssetsResourcesSoundsPath = DynamicAssetsResourcesPath + "/Sounds";\par
+\tab\tab const string DynamicAssetsResourcesSoundsMusicPath = DynamicAssetsResourcesSoundsPath + "/Music";\par
+\tab\tab const string DynamicAssetsResourcesSoundsSFXPath = DynamicAssetsResourcesSoundsPath + "/SFX";\par
+\tab\tab const string DynamicAssetsResourcesTexturesPath = DynamicAssetsResourcesPath + "/Textures";\par
+\tab\tab const string ScriptsPath = "Assets/Scripts";\par
+\tab\tab const string StaticAssetsPath = "Assets/StaticAssets";\par
+\tab\tab const string StaticAssetsAnimationsPath = StaticAssetsPath + "/Animations";\par
+\tab\tab const string StaticAssetsModelsPath = StaticAssetsPath + "/Models";\par
+\tab\tab const string StaticAssetsPrefabsPath = StaticAssetsPath + "/Prefabs";\par
+\tab\tab const string StaticAssetsSoundsPath = StaticAssetsPath + "/Sounds";\par
+\tab\tab const string StaticAssetsSoundsMusicPath = StaticAssetsSoundsPath + "/Music";\par
+\tab\tab const string StaticAssetsSoundsSFXPath = StaticAssetsSoundsPath + "/SFX";\par
+\tab\tab const string StaticAssetsTexturesPath = StaticAssetsPath + "/Textures";\par
+\par
+\tab\tab // Create the desired folder structure using the path string constants defined above.\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "DynamicAssets");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsPath, "Resources");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Animations");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesAnimationsPath, "Sources");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "AnimationControllers");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Effects");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Models");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesModelsPath, "Character");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesModelsPath, "Environment");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Prefabs");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPrefabsPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Sounds");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesSoundsPath, "Music");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesSoundsMusicPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesSoundsPath, "SFX");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesSoundsSFXPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesPath, "Textures");\par
+\tab\tab AssetDatabase.CreateFolder(DynamicAssetsResourcesTexturesPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Extensions");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Gizmos");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Plugins");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Scripts");\par
+\tab\tab AssetDatabase.CreateFolder(ScriptsPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Shaders");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "StaticAssets");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Animations");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsAnimationsPath, "Sources");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "AnimationControllers");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Effects");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Models");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsModelsPath, "Character");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsModelsPath, "Environment");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Prefabs");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPrefabsPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Scenes");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Sounds");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsSoundsPath, "Music");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsSoundsMusicPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsSoundsPath, "SFX");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsSoundsSFXPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsPath, "Textures");\par
+\tab\tab AssetDatabase.CreateFolder(StaticAssetsTexturesPath, "Common");\par
+\tab\tab AssetDatabase.CreateFolder("Assets", "Testing");\par
+\par
+\tab\tab // Create a file named "folderStructure.txt" in the Assets/DynamicAssets/Resources folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/DynamicAssets/Resources/folderStructure.txt",\par
+\tab\tab   "This folder is for storing assets that are loaded into the game via Resources.Load().");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in the Assets/Editor folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Editor/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing Editor scripts.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in the Assets/Extensions folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Extensions/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing third party asset packages.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in the Assets/Gizmos folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Gizmos/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing gizmo scripts.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in the Assets/Plugins folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Plugins/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing plugin scripts.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in Assets/Scripts folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Scripts/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing all other scripts.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in Assets/Shaders folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Shaders/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing shader scripts.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in Assets/StaticAssets folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/StaticAssets/folderStructure.txt",\par
+\tab\tab\tab "This folder is for storing all remaining assets (including scenes) that are not loaded into the game at runtime.");\par
+\tab\tab\par
+\tab\tab // Create a file named "folderStructure.txt" in Assets/Testing folder.\par
+\tab\tab System.IO.File.WriteAllText(Application.dataPath + "/Testing/folderStructure.txt",\par
+\tab\tab                             "This folder is for storing scripts and other files used in testing.");\par
+\par
+\tab\tab // Refresh the project structure to commit all changes.\par
+\tab\tab AssetDatabase.Refresh();\par
+\tab\}  // end method Createfolders()\par
+\}  // end class CreateFolders\par
+\pard\sl480\slmult1\fs24\par
+}
+ 
