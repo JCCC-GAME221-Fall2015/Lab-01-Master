@@ -1,1 +1,1 @@
-Extensions txt
+This is a folder for third party assets such as asset packages.

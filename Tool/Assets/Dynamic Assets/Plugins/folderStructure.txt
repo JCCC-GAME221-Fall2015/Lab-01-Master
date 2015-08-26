@@ -1,1 +1,1 @@
-Plugins txt
+This is a folder for plugin scripts.

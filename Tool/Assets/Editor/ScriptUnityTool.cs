@@ -63,31 +63,31 @@ public class ScriptUnityTool : MonoBehaviour {
                     AssetDatabase.CreateFolder("Assets/Dynamic Assets/Resources/Textures", "Common");
 
                 //Create the folderStructure.txt with information about the structures of the Resources folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Resources/folderStructure.txt", "Resources txt");
+                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Resources/folderStructure.txt", "Dynamic assets are assets that are placed into the game during runtime./nIf you have an asset that is both dynamic and static,/nput it into the dynamic assets folder.");
 
             //Create the Editor folder inside the Dynamic Assets folder
             AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Editor");
 
                 //Create the folderStructure.txt inside the Editor folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Editor/folderStructure.txt", "Editor txt");
+                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Editor/folderStructure.txt", "This is where you place Editor scripts.");
 
             //Create the Extensions folder insidethe Dynamic Assets folder
             AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Extensions");
 
                 //Create the folderStructure.txt inside the Extensions folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Extensions/folderStructure.txt", "Extensions txt");
+                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Extensions/folderStructure.txt", "This is a folder for third party assets such as asset packages.");
 
             //Create the Gizmos folder inside the Dynamic Assets folder
             AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Gizmos");
 
                 //Create the folderStructure.txt inside the Gizmos folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Gizmos/folderStructure.txt", "Gizmos txt");
+                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Gizmos/folderStructure.txt", "This is a folder for gizmo scripts.");
 
             //Create the Plugins folder inside the Dynamic Assets folder
             AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Plugins");
 
                 //Create the folderStructure.txt inside the Plugins folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Plugins/folderStructure.txt", "Plugins txt");
+                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Plugins/folderStructure.txt", "This is a folder for plugin scripts.");
 
             //Create the Scripts folder inside the Dynamic Assets folder
             AssetDatabase.CreateFolder("Assets/Dynamic Assets", "Scripts");
@@ -95,14 +95,14 @@ public class ScriptUnityTool : MonoBehaviour {
                 //Create the common folder inside the Scripts folder
                 AssetDatabase.CreateFolder("Assets/Dynamic Assets/Scripts", "Common");
 
-                //Create the folderStructure.txt inside the Scripts folder
-                System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Scripts/folderStructure.txt", "Scripts txt");
+        //Create the folderStructure.txt inside the Scripts folder
+        System.IO.File.WriteAllText(Application.dataPath + "/Dynamic Assets/Scripts/folderStructure.txt", "This is a folder for all other scripts./nIt should be separated by common scripts found across multiple objects,/nand then scripts by level or by type.");
 
         //Create the Shaders folder insidet the Assets folder
         AssetDatabase.CreateFolder("Assets", "Shaders");
 
             //Create the folderStructure.txt inside the Shaders folder
-            System.IO.File.WriteAllText(Application.dataPath + "/Shaders/folderStructure.txt", "Shaders txt");
+            System.IO.File.WriteAllText(Application.dataPath + "/Shaders/folderStructure.txt", "This is a folder for all shader scripts.");
 
         //Create the Static Assets folder inside the Assets folder
         AssetDatabase.CreateFolder("Assets", "Static Assets");
@@ -159,13 +159,13 @@ public class ScriptUnityTool : MonoBehaviour {
                 AssetDatabase.CreateFolder("Assets/Static Assets/Textures", "Common");
 
             //Create the folderStructure.txt with information about the structures of the Static Assets folder
-            System.IO.File.WriteAllText(Application.dataPath + "/Static Assets/folderStructure.txt", "Static Assets txt");
+            System.IO.File.WriteAllText(Application.dataPath + "/Static Assets/folderStructure.txt", "Static Assets are all remaining assets that are/nnot loaded into the game at runtime.");
 
         //Create the Testing folder inside the Assets folder
         AssetDatabase.CreateFolder("Assets", "Testing");
 
             //Create the folderStructure.txt inside the Testing folder
-            System.IO.File.WriteAllText(Application.dataPath + "/Testing/folderStructure.txt", "Testing txt");
+            System.IO.File.WriteAllText(Application.dataPath + "/Testing/folderStructure.txt", "This is a folder for all test environments.");
 
         //Create the folderStructure.txt inside the Assets folder
         System.IO.File.WriteAllText(Application.dataPath, "Assets txt");

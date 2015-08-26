@@ -1,1 +1,1 @@
-Editor txt
+This is where you place Editor scripts.
