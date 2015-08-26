@@ -1,0 +1,4 @@
+All animations not loaded at runtime and their objects they are associated with go here.
+When creating an animation, make a folder under sources with the object containing the animation and in animations named after the object.
+Import the animated object into its source folder, then copy the .anim file from the object in sources to its animations folder.
+Create the animation controller for the object and put it in the AnimationControllers folder.
