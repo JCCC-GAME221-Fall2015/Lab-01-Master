@@ -1,0 +1,1 @@
+Third-party assets go here (except for the Standard Assets folder).

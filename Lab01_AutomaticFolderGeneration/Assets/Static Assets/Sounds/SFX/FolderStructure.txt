@@ -1,0 +1,3 @@
+Sound effects not loaded at runtime go here.
+Create folders for effects used in specific scenes.
+Effects shared across scenes go in common.
